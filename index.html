@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carlos Alejandro Aleman Osorio - CV</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Half-Life_lambda_logo.svg/1200px-Half-Life_lambda_logo.svg.png">
+  <link rel="icon"
+    href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Half-Life_lambda_logo.svg/1200px-Half-Life_lambda_logo.svg.png">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -46,18 +48,32 @@
     }
 
     .section-title {
-      color: #64b5f6;
+      color: #9d4edd;
+      /* Cambio del azul celeste a un morado más elegante */
       margin-top: 30px;
       margin-bottom: 15px;
     }
 
+    body.light-theme .section-title {
+      color: #1a237e;
+    }
+
     .contact-info a {
       text-decoration: none;
-      color: #64b5f6;
+      color: #9d4edd;
+    }
+
+    body.light-theme .contact-info a {
+      color: #1a237e;
     }
 
     .contact-info a:hover {
+      color: #c77dff;
       text-decoration: underline;
+    }
+
+    body.light-theme .contact-info a:hover {
+      color: #303f9f;
     }
 
     ul {
@@ -70,11 +86,19 @@
     }
 
     a {
-      color: #bb86fc;
+      color: #9d4edd;
+    }
+
+    body.light-theme a {
+      color: #1a237e;
     }
 
     a:hover {
-      color: #03dac5;
+      color: #c77dff;
+    }
+
+    body.light-theme a:hover {
+      color: #303f9f;
     }
 
     .theme-toggle {
@@ -95,13 +119,13 @@
     }
 
     .dark-theme .theme-toggle {
-      background: #64b5f6;
+      background: #9d4edd;
       color: #ffffff;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     .light-theme .theme-toggle {
-      background: #1976d2;
+      background: #1a237e;
       color: #ffffff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
@@ -117,9 +141,9 @@
     .container {
       margin-top: 40px;
     }
-    
   </style>
 </head>
+
 <body class="dark-theme">
   <button id="theme-toggle" class="theme-toggle">
     <i class="fas fa-moon"></i>
@@ -130,7 +154,7 @@
     <header class="text-center">
       <h1>Carlos Alejandro Aleman Osorio</h1>
       <p class="contact-info">
-        Quito, Ecuador | <a href="tel:+593983736659">(+593) 983736659</a> | 
+        Quito, Ecuador | <a href="tel:+593983736659">(+593) 983736659</a> |
         <a href="mailto:acarlos29112003@gmail.com">acarlos29112003@gmail.com</a><br>
         <a href="https://linkedin.com/in/alejoaleman" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> |
         <a href="https://github.com/Alejololer" target="_blank"><i class="fab fa-github"></i> GitHub</a>
@@ -141,7 +165,12 @@
     <section>
       <h2 class="section-title"><i class="fas fa-user"></i> Profile</h2>
       <p>
-        Software Engineering student, responsible, committed, and diligent...
+        . Passionate about technology with strong self-taught skills that complement a solid academic foundation.
+        Known for adaptability and the ability to contribute effectively in dynamic work environments.
+        Bilingual in Spanish and English, with excellent written and verbal communication skills.
+        Proficient in multiple programming languages and agile development methodologies.
+        Creative, flexible, and solution-oriented, with a strong enthusiasm for delivering innovative and impactful
+        results.
       </p>
     </section>
 
@@ -151,12 +180,16 @@
       <div>
         <h5>Escuela Politécnica Nacional, Quito</h5>
         <p><strong>Bachelor’s Degree in Software Engineering</strong><br>Nov 2021 — Present</p>
-        <p>Currently enrolled in the sixth semester, maintaining a consistent academic record without any setbacks. Actively participated in various system development projects, most notably the creation of a prototype for a General Management System for a Clinical Analysis Laboratory, featuring a connection to a local database (C# and SQL Server).</p>
+        <p>Currently enrolled in the sixth semester, maintaining a consistent academic record without any setbacks.
+          Actively participated in various system development projects, most notably the creation of a prototype for a
+          General Management System for a Clinical Analysis Laboratory, featuring a connection to a local database (C#
+          and SQL Server).</p>
       </div>
       <div>
         <h5>Hermano Miguel, Latacunga</h5>
         <p><strong>High School Diploma in Service Electronics</strong><br>Sep 2018 — Jun 2021</p>
-        <p>Multiple recognitions in the school's honor roll, including being awarded the positions of flag bearer and first escort on the honor roll.</p>
+        <p>Multiple recognitions in the school's honor roll, including being awarded the positions of flag bearer and
+          first escort on the honor roll.</p>
       </div>
     </section>
 
@@ -168,9 +201,12 @@
         <p><strong>Full-Stack Software Developer</strong><br>Nov 2024 — Present</p>
         <ul>
           <li>Focused on updating technologies and adding new features to the company's software products.</li>
-          <li>Enhanced a web application with an Angular frontend, .NET services, and an SQL database, as well as a mobile application built in Flutter.</li>
-          <li>Contributed by refactoring code and improving the system's architecture to ensure scalability and alignment with modern development practices.</li>
-          <li>Collaborated closely with the team to deliver high-quality updates in a dynamic and fast-paced environment.</li>
+          <li>Enhanced a web application with an Angular frontend, .NET services, and an SQL database, as well as a
+            mobile application built in Flutter.</li>
+          <li>Contributed by refactoring code and improving the system's architecture to ensure scalability and
+            alignment with modern development practices.</li>
+          <li>Collaborated closely with the team to deliver high-quality updates in a dynamic and fast-paced
+            environment.</li>
         </ul>
       </div>
       <div>
@@ -212,24 +248,24 @@
     const themeToggleButton = document.getElementById('theme-toggle');
     const body = document.body;
     const icon = themeToggleButton.querySelector('i');
-    
+
     // Cargar el tema guardado o usar dark-theme por defecto
     const savedTheme = localStorage.getItem('theme') || 'dark-theme';
-    
+
     // Limpiar cualquier clase de tema existente y agregar la guardada
     body.classList.remove('dark-theme', 'light-theme');
     body.classList.add(savedTheme);
-    
+
     // Función para actualizar el ícono - muestra el ícono OPUESTO al tema actual
     const updateIcon = () => {
       // Si estamos en tema oscuro, mostramos el sol (para cambiar a claro)
       // Si estamos en tema claro, mostramos la luna (para cambiar a oscuro)
       icon.className = body.classList.contains('dark-theme') ? 'fas fa-sun' : 'fas fa-moon';
     };
-    
+
     // Inicializar el ícono basado en el tema cargado
     updateIcon();
-    
+
     themeToggleButton.addEventListener('click', () => {
       if (body.classList.contains('dark-theme')) {
         body.classList.replace('dark-theme', 'light-theme');
@@ -242,4 +278,5 @@
     });
   </script>
 </body>
+
 </html>
