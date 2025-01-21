@@ -79,9 +79,9 @@
 
     .theme-toggle {
       position: fixed;
-      top: 20px;          /* Cambiado de bottom a top */
+      top: 20px;         
       right: 20px;
-      padding: 12px;      /* Añadido padding para mejor apariencia */
+      padding: 12px;    
       border: none;
       width: 50px;
       height: 50px;
@@ -90,18 +90,16 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      z-index: 1000;      /* Asegura que el botón esté siempre visible */
+      z-index: 1000;  
       transition: all 0.3s ease;
     }
 
-    /* Estilos para tema oscuro */
     .dark-theme .theme-toggle {
       background: #64b5f6;
       color: #ffffff;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    /* Estilos para tema claro */
     .light-theme .theme-toggle {
       background: #1976d2;
       color: #ffffff;
@@ -116,9 +114,8 @@
       font-size: 1.2rem;
     }
 
-    /* Ajuste del contenedor principal para evitar que el botón lo tape */
     .container {
-      margin-top: 40px;  /* Añade espacio en la parte superior */
+      margin-top: 40px; 
     }
   </style>
 </head>
@@ -214,19 +211,14 @@
     const themeToggleButton = document.getElementById('theme-toggle');
     const body = document.body;
 
-    // Load the initial theme from localStorage
     const savedTheme = localStorage.getItem('theme') || 'dark-theme';
     body.classList.add(savedTheme);
 
-    // Update icon based on theme
     const updateIcon = () => {
       const icon = themeToggleButton.querySelector('i');
-      if (body.classList.contains('dark-theme')) {
-        icon.className = 'fas fa-sun';  // Cambiado para mostrar el sol en tema oscuro
-      } else {
-        icon.className = 'fas fa-moon'; // Cambiado para mostrar la luna en tema claro
-      }
+      icon.className = body.classList.contains('dark-theme') ? 'fas fa-sun' : 'fas fa-moon';
     };
+
     updateIcon();
 
     themeToggleButton.addEventListener('click', () => {
