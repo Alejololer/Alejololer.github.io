@@ -11,9 +11,32 @@
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-theme {
       background-color: #121212;
       color: #e0e0e0;
     }
+
+    body.light-theme {
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    .container {
+      background-color: var(--container-bg, #1e1e1e);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.light-theme .container {
+      background-color: #ffffff;
+      color: #333;
+    }
+
     .profile-img {
       width: 150px;
       height: 150px;
@@ -21,43 +44,61 @@
       border-radius: 50%;
       margin-bottom: 15px;
     }
+
     .section-title {
       color: #64b5f6;
       margin-top: 30px;
       margin-bottom: 15px;
     }
+
     .contact-info a {
       text-decoration: none;
       color: #64b5f6;
     }
+
     .contact-info a:hover {
       text-decoration: underline;
     }
-    h1, h2, h5 {
-      color: #ffffff;
-    }
+
     ul {
       list-style-type: disc;
       padding-left: 20px;
     }
+
     ul li {
       margin-bottom: 5px;
     }
+
     a {
       color: #bb86fc;
     }
+
     a:hover {
       color: #03dac5;
     }
-    .container {
-      background-color: #1e1e1e;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #64b5f6;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 20px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+      background-color: #42a5f5;
+      transform: scale(1.1);
     }
   </style>
 </head>
-<body>
+<body class="dark-theme">
+  <button id="theme-toggle" class="theme-toggle">Switch to Light Mode</button>
+
   <div class="container py-5">
     <!-- Header -->
     <header class="text-center">
@@ -69,12 +110,12 @@
         <a href="https://github.com/Alejololer" target="_blank"><i class="fab fa-github"></i> GitHub</a>
       </p>
     </header>
-    
+
     <!-- Profile -->
     <section>
       <h2 class="section-title"><i class="fas fa-user"></i> Profile</h2>
       <p>
-        Software Engineering student, responsible, committed, and diligent. Passionate about technology with strong self-taught skills that complement a solid academic foundation. Known for adaptability and the ability to contribute effectively in dynamic work environments. Bilingual in Spanish and English, with excellent written and verbal communication skills. Proficient in multiple programming languages and agile development methodologies. Creative, flexible, and solution-oriented, with a strong enthusiasm for delivering innovative and impactful results.
+        Software Engineering student, responsible, committed, and diligent...
       </p>
     </section>
 
@@ -139,5 +180,28 @@
       </div>
     </section>
   </div>
+  </div>
+
+  <script>
+    const themeToggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Load the initial theme from localStorage
+    const savedTheme = localStorage.getItem('theme') || 'dark-theme';
+    body.classList.add(savedTheme);
+    themeToggleButton.textContent = savedTheme === 'dark-theme' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+
+    themeToggleButton.addEventListener('click', () => {
+      if (body.classList.contains('dark-theme')) {
+        body.classList.replace('dark-theme', 'light-theme');
+        themeToggleButton.textContent = 'Switch to Dark Mode';
+        localStorage.setItem('theme', 'light-theme');
+      } else {
+        body.classList.replace('light-theme', 'dark-theme');
+        themeToggleButton.textContent = 'Switch to Light Mode';
+        localStorage.setItem('theme', 'dark-theme');
+      }
+    });
+  </script>
 </body>
 </html>
