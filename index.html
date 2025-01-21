@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carlos Alejandro Aleman - CV</title>
+  <title>Carlos Alejandro Aleman Osorio - CV</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Half-Life_lambda_logo.svg/1200px-Half-Life_lambda_logo.svg.png">
@@ -211,17 +211,25 @@
   <script>
     const themeToggleButton = document.getElementById('theme-toggle');
     const body = document.body;
-
+    const icon = themeToggleButton.querySelector('i');
+    
+    // Cargar el tema guardado o usar dark-theme por defecto
     const savedTheme = localStorage.getItem('theme') || 'dark-theme';
+    
+    // Limpiar cualquier clase de tema existente y agregar la guardada
+    body.classList.remove('dark-theme', 'light-theme');
     body.classList.add(savedTheme);
-
+    
+    // Función para actualizar el ícono - muestra el ícono OPUESTO al tema actual
     const updateIcon = () => {
-      const icon = themeToggleButton.querySelector('i');
+      // Si estamos en tema oscuro, mostramos el sol (para cambiar a claro)
+      // Si estamos en tema claro, mostramos la luna (para cambiar a oscuro)
       icon.className = body.classList.contains('dark-theme') ? 'fas fa-sun' : 'fas fa-moon';
     };
-
+    
+    // Inicializar el ícono basado en el tema cargado
     updateIcon();
-
+    
     themeToggleButton.addEventListener('click', () => {
       if (body.classList.contains('dark-theme')) {
         body.classList.replace('dark-theme', 'light-theme');
