@@ -376,3 +376,16 @@
                 body.classList.replace('dark-theme', 'light-theme');
                 localStorage.setItem('theme', 'light-theme');
             } else {
+                body.classList.replace('light-theme', 'dark-theme');
+                localStorage.setItem('theme', 'dark-theme');
+            }
+            updateIcon();
+        });
+
+        function updateIcon() {
+            icon.className = body.classList.contains('dark-theme') ? 'fas fa-sun' : 'fas fa-moon';
+        }
+    </script>
+</body>
+
+</html>
