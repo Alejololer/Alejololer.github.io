@@ -12,11 +12,9 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            /* Changed font */
             line-height: 1.6;
             color: #333;
             background: #f8f9fa;
-            /* Light background */
         }
 
         .container {
@@ -43,7 +41,6 @@
 
         .section-title {
             color: #6c5b7b;
-            /* Deep purple */
             font-size: 1.75rem;
             font-weight: 700;
             margin-top: 2.5rem;
@@ -60,11 +57,14 @@
             height: 3px;
             width: 50px;
             background: #6c5b7b;
-            /* Purple line */
         }
 
-        .contact-list-item {
-            margin-bottom: 0.5rem;
+        .contact-list {
+            display: flex;
+            justify-content: center;
+            gap: 1rem; /* Adjust the gap as needed */
+            list-style: none;
+            padding-left: 0;
         }
 
         .contact-list-item a {
@@ -75,7 +75,6 @@
 
         .contact-list-item a:hover {
             color: #9d4edd;
-            /* Lighter purple on hover */
         }
 
         .experience-item {
@@ -86,13 +85,11 @@
             font-size: 1.25rem;
             font-weight: 600;
             color: #343a40;
-            /* Dark grey */
         }
 
         .experience-duration {
             font-style: italic;
             color: #6c757d;
-            /* Grey */
         }
 
         .skill-list {
@@ -104,9 +101,7 @@
 
         .skill-item {
             background: #e9ecef;
-            /* Light grey background for skills */
             color: #495057;
-            /* Darker grey for text */
             padding: 0.25rem 0.5rem;
             border-radius: 0.25rem;
             margin-right: 0.5rem;
@@ -114,7 +109,6 @@
             font-size: 0.875rem;
         }
 
-        /* Hover effects and transitions */
         .container,
         .skill-item {
             transition: box-shadow 0.3s ease, transform 0.2s ease;
@@ -126,22 +120,20 @@
             transform: translateY(-3px);
         }
 
-        /* Theme toggle button */
         .theme-toggle {
             position: fixed;
             top: 20px;
             right: 20px;
-            padding: 10px;
+            padding: 10px 15px; /* Adjusted padding */
             border: none;
-            border-radius: 50%;
+            border-radius: 0.5rem; /* Adjusted border-radius */
             cursor: pointer;
             background-color: #fff;
-            /* White background */
             color: #6c5b7b;
-            /* Purple color */
             box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s ease, color 0.3s ease;
             z-index: 1000;
+            min-width: 40px; /* Minimum width */
         }
 
         .theme-toggle:hover {
@@ -149,7 +141,6 @@
             color: #fff;
         }
 
-        /* Dark theme styles */
         body.dark-theme {
             background: #1a1a2e;
             color: #f8f9fa;
@@ -215,7 +206,7 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Half-Life_lambda_logo.svg/1200px-Half-Life_lambda_logo.svg.png"
                 alt="Carlos Alejandro Aleman Osorio" class="profile-img">
             <h1>Carlos Alejandro Aleman Osorio</h1>
-            <ul class="list-unstyled contact-list">
+            <ul class="contact-list">
                 <li class="contact-list-item">Quito, Ecuador</li>
                 <li class="contact-list-item"><a href="tel:+593983736659">(+593) 983736659</a></li>
                 <li class="contact-list-item"><a
@@ -271,10 +262,10 @@
                     <strong>Full-Stack Software Developer</strong>
                     <br>
                     Spearheaded feature development and maintained core web (Angular, .NET, SQL) and mobile (Flutter)
-                    applications. [cite: 8, 9] Consistently delivered new functionalities and enhancements ahead of project
-                    timelines, directly contributing to product evolution. [cite: 10] Proactively refactored and optimized
-                    codebases for efficiency, maintainability, and adherence to clean code principles. [cite: 11]
-                    Collaborated within agile teams to ensure timely project delivery in a fast-paced environment. [cite: 12]
+                    applications. Consistently delivered new functionalities and enhancements ahead of project
+                    timelines, directly contributing to product evolution. Proactively refactored and optimized
+                    codebases for efficiency, maintainability, and adherence to clean code principles.
+                    Collaborated within agile teams to ensure timely project delivery in a fast-paced environment.
                 </p>
             </div>
             <div class="experience-item">
@@ -284,10 +275,10 @@
                     <strong>Software Developer Intern</strong>
                     <br>
                     Maintained, debugged, and enhanced company software applications, ensuring functionality and
-                    reliability. [cite: 13] Recognized for professionalism and proactive software development skills,
-                    quickly becoming a trusted team member. [cite: 14] Consistently delivered high-quality results rapidly
+                    reliability. Recognized for professionalism and proactive software development skills,
+                    quickly becoming a trusted team member. Consistently delivered high-quality results rapidly
                     and precisely in a dynamic setting, exceeding project expectations and contributing to a productive
-                    team environment, which led to a direct transition to a Full-Stack Developer role. [cite: 15]
+                    team environment, which led to a direct transition to a Full-Stack Developer role.
                 </p>
             </div>
         </section>
@@ -338,21 +329,21 @@
                 <ul>
                     <li>
                         <strong>Rapid Debugging & Solution Implementation:</strong> Proven ability to quickly diagnose and
-                        resolve critical system issues, minimizing downtime and ensuring continuous operation. [cite: 19]
+                        resolve critical system issues, minimizing downtime and ensuring continuous operation.
                     </li>
                     <li>
                         <strong>Proactive Problem-Proofing & Detail-Oriented Development:</strong> Meticulous approach to
                         software development, focusing on preventative measures and rigorous testing to minimize potential
-                        system failures and ensure high reliability. [cite: 20]
+                        system failures and ensure high reliability.
                     </li>
                     <li>
                         <strong>Adaptability & Effective Support in Dynamic Environments:</strong> Thrive in fast-paced support
                         roles, demonstrating flexibility and resourcefulness to address unexpected challenges and maintain
-                        system stability under pressure. [cite: 21]
+                        system stability under pressure.
                     </li>
                     <li>
                         <strong>User-Centered Approach to Intuitive Solutions:</strong> Dedicated to understanding user needs
-                        and designing solutions that are not only functional but also user-friendly and efficient. [cite: 22]
+                        and designing solutions that are not only functional but also user-friendly and efficient.
                     </li>
                 </ul>
             </div>
