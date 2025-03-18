@@ -2,282 +2,377 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carlos Alejandro Aleman Osorio - CV</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="icon"
-    href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Half-Life_lambda_logo.svg/1200px-Half-Life_lambda_logo.svg.png">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Alejandro Aleman Osorio - CV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Half-Life_lambda_logo.svg/1200px-Half-Life_lambda_logo.svg.png">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            /* Changed font */
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            /* Light background */
+        }
 
-    body.dark-theme {
-      background-color: #121212;
-      color: #e0e0e0;
-    }
+        .container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
 
-    body.light-theme {
-      background-color: #f9f9f9;
-      color: #333;
-    }
+        .profile-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
 
-    .container {
-      background-color: var(--container-bg, #1e1e1e);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+        }
 
-    body.light-theme .container {
-      background-color: #ffffff;
-      color: #333;
-    }
+        .section-title {
+            color: #6c5b7b;
+            /* Deep purple */
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
 
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 15px;
-    }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 50px;
+            background: #6c5b7b;
+            /* Purple line */
+        }
 
-    .section-title {
-      color: #9d4edd;
-      /* Cambio del azul celeste a un morado más elegante */
-      margin-top: 30px;
-      margin-bottom: 15px;
-    }
+        .contact-list-item {
+            margin-bottom: 0.5rem;
+        }
 
-    body.light-theme .section-title {
-      color: #1a237e;
-    }
+        .contact-list-item a {
+            color: #6c5b7b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-    .contact-info a {
-      text-decoration: none;
-      color: #9d4edd;
-    }
+        .contact-list-item a:hover {
+            color: #9d4edd;
+            /* Lighter purple on hover */
+        }
 
-    body.light-theme .contact-info a {
-      color: #1a237e;
-    }
+        .experience-item {
+            margin-bottom: 1.5rem;
+        }
 
-    .contact-info a:hover {
-      color: #c77dff;
-      text-decoration: underline;
-    }
+        .experience-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #343a40;
+            /* Dark grey */
+        }
 
-    body.light-theme .contact-info a:hover {
-      color: #303f9f;
-    }
+        .experience-duration {
+            font-style: italic;
+            color: #6c757d;
+            /* Grey */
+        }
 
-    ul {
-      list-style-type: disc;
-      padding-left: 20px;
-    }
+        .skill-list {
+            padding-left: 0;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-    ul li {
-      margin-bottom: 5px;
-    }
+        .skill-item {
+            background: #e9ecef;
+            /* Light grey background for skills */
+            color: #495057;
+            /* Darker grey for text */
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
 
-    a {
-      color: #9d4edd;
-    }
+        /* Hover effects and transitions */
+        .container,
+        .skill-item {
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+        }
 
-    body.light-theme a {
-      color: #1a237e;
-    }
+        .container:hover,
+        .skill-item:hover {
+            box-shadow: 0 0.75rem 1.25rem rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+        }
 
-    a:hover {
-      color: #c77dff;
-    }
+        /* Theme toggle button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: #fff;
+            /* White background */
+            color: #6c5b7b;
+            /* Purple color */
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            z-index: 1000;
+        }
 
-    body.light-theme a:hover {
-      color: #303f9f;
-    }
+        .theme-toggle:hover {
+            background-color: #6c5b7b;
+            color: #fff;
+        }
 
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 12px;
-      border: none;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 1000;
-      transition: all 0.3s ease;
-    }
+        /* Dark theme styles */
+        body.dark-theme {
+            background: #1a1a2e;
+            color: #f8f9fa;
+        }
 
-    .dark-theme .theme-toggle {
-      background: #9d4edd;
-      color: #ffffff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+        body.dark-theme .container {
+            background: #2c2d3f;
+            box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.1);
+        }
 
-    .light-theme .theme-toggle {
-      background: #1a237e;
-      color: #ffffff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+        body.dark-theme .section-title {
+            color: #9d81ba;
+        }
 
-    .theme-toggle:hover {
-      transform: scale(1.1);
-    }
+        body.dark-theme .section-title::after {
+            background: #9d81ba;
+        }
 
-    .theme-toggle i {
-      font-size: 1.2rem;
-    }
+        body.dark-theme .contact-list-item a {
+            color: #9d81ba;
+        }
 
-    .container {
-      margin-top: 40px;
-    }
-  </style>
+        body.dark-theme .contact-list-item a:hover {
+            color: #c4b5fd;
+        }
+
+        body.dark-theme .experience-title {
+            color: #fff;
+        }
+
+        body.dark-theme .experience-duration {
+            color: #9ca3af;
+        }
+
+        body.dark-theme .skill-item {
+            background: #444556;
+            color: #cbd2d9;
+        }
+
+        body.dark-theme .theme-toggle {
+            background-color: #444556;
+            color: #9d81ba;
+            box-shadow: 0 0.25rem 0.5rem rgba(255, 255, 255, 0.2);
+        }
+
+        body.dark-theme .theme-toggle:hover {
+            background-color: #9d81ba;
+            color: #fff;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body class="dark-theme">
-  <button id="theme-toggle" class="theme-toggle">
-    <i class="fas fa-moon"></i>
-  </button>
+<body class="light-theme">
+    <button id="theme-toggle" class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
 
-  <div class="container py-5">
-    <!-- Header -->
-    <header class="text-center">
-      <h1>Carlos Alejandro Aleman Osorio</h1>
-      <p class="contact-info">
-        Quito, Ecuador | <a href="tel:+593983736659">(+593) 983736659</a> |
-        <a href="mailto:acarlos29112003@gmail.com">acarlos29112003@gmail.com</a><br>
-        <a href="https://linkedin.com/in/alejoaleman" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> |
-        <a href="https://github.com/Alejololer" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-      </p>
-    </header>
+    <div class="container">
+        <section class="profile-section">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Half-Life_lambda_logo.svg/1200px-Half-Life_lambda_logo.svg.png"
+                alt="Carlos Alejandro Aleman Osorio" class="profile-img">
+            <h1>Carlos Alejandro Aleman Osorio</h1>
+            <ul class="list-unstyled contact-list">
+                <li class="contact-list-item">Quito, Ecuador</li>
+                <li class="contact-list-item"><a href="tel:+593983736659">(+593) 983736659</a></li>
+                <li class="contact-list-item"><a
+                        href="mailto:acarlos29112003@gmail.com">acarlos29112003@gmail.com</a></li>
+                <li class="contact-list-item"><a href="https://linkedin.com/in/alejoaleman" target="_blank"><i
+                            class="fab fa-linkedin"></i> LinkedIn</a></li>
+                <li class="contact-list-item"><a href="https://github.com/Alejololer" target="_blank"><i
+                            class="fab fa-github"></i> GitHub</a></li>
+            </ul>
+        </section>
 
-    <!-- Profile -->
-    <section>
-      <h2 class="section-title"><i class="fas fa-user"></i> Profile</h2>
-      <p>
-        Software Engineering student, responsible, committed, and diligent. 
-        Passionate about technology with strong self-taught skills that complement a solid academic foundation.
-        Known for adaptability and the ability to contribute effectively in dynamic work environments.
-        Bilingual in Spanish and English, with excellent written and verbal communication skills.
-        Proficient in multiple programming languages and agile development methodologies.
-        Creative, flexible, and solution-oriented, with a strong enthusiasm for delivering innovative and impactful
-        results.
-      </p>
-    </section>
+        <section>
+            <h2 class="section-title">Profile</h2>
+            <p>
+                As a 7th-semester Software Engineering student at Escuela Politécnica Nacional and a proactive Full-Stack
+                Developer, I am passionate about leveraging technology to solve complex problems. My experience includes
+                developing and enhancing web and mobile applications using Angular, .NET, Flutter, and SQL. I am adept at
+                collaborating in agile environments, delivering high-quality solutions, and continuously seeking
+                opportunities to innovate and make a real impact.
+            </p>
+        </section>
 
-    <!-- Education -->
-    <section>
-      <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
-      <div>
-        <h5>Escuela Politécnica Nacional, Quito</h5>
-        <p><strong>Bachelor’s Degree in Software Engineering</strong><br>Nov 2021 — Present</p>
-        <p>Currently enrolled in the sixth semester, maintaining a consistent academic record without any setbacks.
-          Actively participated in various system development projects, most notably the creation of a prototype for a
-          General Management System for a Clinical Analysis Laboratory, featuring a connection to a local database (C#
-          and SQL Server).</p>
-      </div>
-      <div>
-        <h5>Hermano Miguel, Latacunga</h5>
-        <p><strong>High School Diploma in Service Electronics</strong><br>Sep 2018 — Jun 2021</p>
-        <p>Multiple recognitions in the school's honor roll, including being awarded the positions of flag bearer and
-          first escort on the honor roll.</p>
-      </div>
-    </section>
+        <section>
+            <h2 class="section-title">Education</h2>
+            <div class="experience-item">
+                <h5 class="experience-title">Escuela Politécnica Nacional, Quito</h5>
+                <p class="experience-duration">Nov 2021 — Present</p>
+                <p>
+                    <strong>Bachelor’s Degree in Software Engineering</strong>
+                    <br>
+                    Actively engaged in diverse system development projects, notably creating a General Management System
+                    prototype for a Clinical Analysis Laboratory using C# and SQL Server.
+                </p>
+            </div>
+            <div class="experience-item">
+                <h5 class="experience-title">Hermano Miguel, Latacunga</h5>
+                <p class="experience-duration">Sep 2018 — Jun 2021</p>
+                <p>
+                    <strong>High School Diploma in Service Electronics</strong>
+                    <br>
+                    Achieved multiple recognitions on the school's honor roll, including flag bearer and first escort
+                    positions.
+                </p>
+            </div>
+        </section>
 
-    <!-- Experience -->
-    <section>
-      <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
-      <div>
-        <h5>SagatFarm, Quito</h5>
-        <p><strong>Full-Stack Software Developer</strong><br>Nov 2024 — Present</p>
-        <ul>
-          <li>Focused on updating technologies and adding new features to the company's software products.</li>
-          <li>Enhanced a web application with an Angular frontend, .NET services, and an SQL database, as well as a
-            mobile application built in Flutter.</li>
-          <li>Contributed by refactoring code and improving the system's architecture to ensure scalability and
-            alignment with modern development practices.</li>
-          <li>Collaborated closely with the team to deliver high-quality updates in a dynamic and fast-paced
-            environment.</li>
-        </ul>
-      </div>
-      <div>
-        <h5>SagatFarm, Quito</h5>
-        <p><strong>Intern Full-Stack Developer</strong><br>Sep 2024 — Nov 2024</p>
-        <ul>
-          <li>Maintained, debugged, and enhanced the company's software products.</li>
-          <li>Ensured functionality and reliability across various platforms.</li>
-          <li>Demonstrated punctuality and professionalism, earning trust within the team.</li>
-        </ul>
-      </div>
-    </section>
+        <section>
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-item">
+                <h5 class="experience-title">SagatFarm, Quito</h5>
+                <p class="experience-duration">Nov 2024 — Present</p>
+                <p>
+                    <strong>Full-Stack Software Developer</strong>
+                    <br>
+                    Spearheaded feature development and maintained core web (Angular, .NET, SQL) and mobile (Flutter)
+                    applications. [cite: 8, 9] Consistently delivered new functionalities and enhancements ahead of project
+                    timelines, directly contributing to product evolution. [cite: 10] Proactively refactored and optimized
+                    codebases for efficiency, maintainability, and adherence to clean code principles. [cite: 11]
+                    Collaborated within agile teams to ensure timely project delivery in a fast-paced environment. [cite: 12]
+                </p>
+            </div>
+            <div class="experience-item">
+                <h5 class="experience-title">SagatFarm, Quito</h5>
+                <p class="experience-duration">Sep 2024 — Nov 2024</p>
+                <p>
+                    <strong>Software Developer Intern</strong>
+                    <br>
+                    Maintained, debugged, and enhanced company software applications, ensuring functionality and
+                    reliability. [cite: 13] Recognized for professionalism and proactive software development skills,
+                    quickly becoming a trusted team member. [cite: 14] Consistently delivered high-quality results rapidly
+                    and precisely in a dynamic setting, exceeding project expectations and contributing to a productive
+                    team environment, which led to a direct transition to a Full-Stack Developer role. [cite: 15]
+                </p>
+            </div>
+        </section>
 
-    <!-- Skills -->
-    <section>
-      <h2 class="section-title"><i class="fas fa-tools"></i> Skills</h2>
-      <div>
-        <h5>Technical Skills</h5>
-        <ul>
-          <li><strong>Programming Languages:</strong> Python, Java, C++, C#, TypeScript.</li>
-          <li><strong>Web Development:</strong> HTML, CSS, Angular, .NET.</li>
-          <li><strong>Mobile Development:</strong> Flutter.</li>
-          <li><strong>Database Management:</strong> SQL Server, MySQL, PostgreSQL, SQLite.</li>
-        </ul>
-      </div>
-      <div>
-        <h5>Communication Skills</h5>
-        <ul>
-          <li>Bilingual: Spanish and English.</li>
-          <li>Clear and concise technical documentation.</li>
-          <li>Effective team collaboration and cross-functional communication.</li>
-        </ul>
-      </div>
-    </section>
-  </div>
-  </div>
+        <section>
+            <h2 class="section-title">Skills</h2>
+            <div>
+                <h5 class="experience-title">Technical Skills</h5>
+                <ul class="skill-list">
+                    <li class="skill-item">Python</li>
+                    <li class="skill-item">Java</li>
+                    <li class="skill-item">C++</li>
+                    <li class="skill-item">C#</li>
+                    <li class="skill-item">TypeScript</li>
+                    <li class="skill-item">JavaScript</li>
+                    <li class="skill-item">HTML</li>
+                    <li class="skill-item">CSS</li>
+                    <li class="skill-item">Angular</li>
+                    <li class="skill-item">.NET</li>
+                    <li class="skill-item">React</li>
+                    <li class="skill-item">Node</li>
+                    <li class="skill-item">Express</li>
+                    <li class="skill-item">Flutter</li>
+                    <li class="skill-item">SQL Server</li>
+                    <li class="skill-item">MySQL</li>
+                    <li class="skill-item">PostgreSQL</li>
+                    <li class="skill-item">SQLite</li>
+                    <li class="skill-item">MongoDB</li>
+                    <li class="skill-item">Scrum</li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="experience-title">Communication Skills</h5>
+                <ul class="skill-list">
+                    <li class="skill-item">Bilingual: Spanish and English</li>
+                    <li class="skill-item">Clear and concise technical documentation</li>
+                    <li class="skill-item">Effective team collaboration</li>
+                    <li class="skill-item">Cross-functional communication</li>
+                    <li class="skill-item">Ability to explain complex technical concepts in simple terms</li>
+                </ul>
+            </div>
+        </section>
 
-  <script>
-    const themeToggleButton = document.getElementById('theme-toggle');
-    const body = document.body;
-    const icon = themeToggleButton.querySelector('i');
+        <section>
+            <h2 class="section-title">Professional Strengths</h2>
+            <div class="experience-item">
+                <h5 class="experience-title">Key Attributes</h5>
+                <ul>
+                    <li>
+                        <strong>Rapid Debugging & Solution Implementation:</strong> Proven ability to quickly diagnose and
+                        resolve critical system issues, minimizing downtime and ensuring continuous operation. [cite: 19]
+                    </li>
+                    <li>
+                        <strong>Proactive Problem-Proofing & Detail-Oriented Development:</strong> Meticulous approach to
+                        software development, focusing on preventative measures and rigorous testing to minimize potential
+                        system failures and ensure high reliability. [cite: 20]
+                    </li>
+                    <li>
+                        <strong>Adaptability & Effective Support in Dynamic Environments:</strong> Thrive in fast-paced support
+                        roles, demonstrating flexibility and resourcefulness to address unexpected challenges and maintain
+                        system stability under pressure. [cite: 21]
+                    </li>
+                    <li>
+                        <strong>User-Centered Approach to Intuitive Solutions:</strong> Dedicated to understanding user needs
+                        and designing solutions that are not only functional but also user-friendly and efficient. [cite: 22]
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
 
-    // Cargar el tema guardado o usar dark-theme por defecto
-    const savedTheme = localStorage.getItem('theme') || 'dark-theme';
+    <script>
+        const themeToggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+        const icon = themeToggleButton.querySelector('i');
 
-    // Limpiar cualquier clase de tema existente y agregar la guardada
-    body.classList.remove('dark-theme', 'light-theme');
-    body.classList.add(savedTheme);
+        const savedTheme = localStorage.getItem('theme') || 'light-theme';
 
-    // Función para actualizar el ícono - muestra el ícono OPUESTO al tema actual
-    const updateIcon = () => {
-      // Si estamos en tema oscuro, mostramos el sol (para cambiar a claro)
-      // Si estamos en tema claro, mostramos la luna (para cambiar a oscuro)
-      icon.className = body.classList.contains('dark-theme') ? 'fas fa-sun' : 'fas fa-moon';
-    };
+        body.classList.remove('dark-theme', 'light-theme');
+        body.classList.add(savedTheme);
 
-    // Inicializar el ícono basado en el tema cargado
-    updateIcon();
+        updateIcon();
 
-    themeToggleButton.addEventListener('click', () => {
-      if (body.classList.contains('dark-theme')) {
-        body.classList.replace('dark-theme', 'light-theme');
-        localStorage.setItem('theme', 'light-theme');
-      } else {
-        body.classList.replace('light-theme', 'dark-theme');
-        localStorage.setItem('theme', 'dark-theme');
-      }
-      updateIcon();
-    });
-  </script>
-</body>
-
-</html>
+        themeToggleButton.addEventListener('click', () => {
+            if (body.classList.contains('dark-theme')) {
+                body.classList.replace('dark-theme', 'light-theme');
+                localStorage.setItem('theme', 'light-theme');
+            } else {
