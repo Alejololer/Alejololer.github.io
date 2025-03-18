@@ -15,6 +15,7 @@
             line-height: 1.6;
             color: #333;
             background: #f8f9fa;
+            scroll-behavior: smooth;
         }
 
         .container {
@@ -23,6 +24,8 @@
             border-radius: 1rem;
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
             margin-top: 2rem;
+            margin-bottom: 2rem;
+            max-width: 1200px;
         }
 
         .profile-section {
@@ -37,6 +40,12 @@
             border-radius: 50%;
             margin-bottom: 1rem;
             box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05) rotate(3deg);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
         }
 
         .section-title {
@@ -57,12 +66,18 @@
             height: 3px;
             width: 50px;
             background: #6c5b7b;
+            transition: width 0.4s ease;
+        }
+
+        .section-title:hover::after {
+            width: 100px;
         }
 
         .contact-list {
             display: flex;
             justify-content: center;
-            gap: 1rem; /* Adjust the gap as needed */
+            flex-wrap: wrap;
+            gap: 1rem;
             list-style: none;
             padding-left: 0;
         }
@@ -70,26 +85,47 @@
         .contact-list-item a {
             color: #6c5b7b;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .contact-list-item a:hover {
             color: #9d4edd;
+            transform: translateY(-2px);
+            display: inline-block;
         }
 
         .experience-item {
             margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 10px;
+            border-left: 3px solid transparent;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .experience-item:hover {
+            border-left-color: #6c5b7b;
+            transform: translateX(5px);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
         }
 
         .experience-title {
             font-size: 1.25rem;
             font-weight: 600;
             color: #343a40;
+            margin-right: 10px;
         }
 
         .experience-duration {
             font-style: italic;
             color: #6c757d;
+            font-weight: 500;
+            white-space: nowrap;
         }
 
         .skill-list {
@@ -107,6 +143,14 @@
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
             font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: #6c5b7b;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .container,
@@ -114,31 +158,30 @@
             transition: box-shadow 0.3s ease, transform 0.2s ease;
         }
 
-        .container:hover,
-        .skill-item:hover {
+        .container:hover {
             box-shadow: 0 0.75rem 1.25rem rgba(0, 0, 0, 0.15);
-            transform: translateY(-3px);
         }
 
         .theme-toggle {
             position: fixed;
             top: 20px;
             right: 20px;
-            padding: 10px 15px; /* Adjusted padding */
+            padding: 10px 15px;
             border: none;
-            border-radius: 0.5rem; /* Adjusted border-radius */
+            border-radius: 0.5rem;
             cursor: pointer;
             background-color: #fff;
             color: #6c5b7b;
             box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: all 0.3s ease;
             z-index: 1000;
-            min-width: 40px; /* Minimum width */
+            min-width: 40px;
         }
 
         .theme-toggle:hover {
             background-color: #6c5b7b;
             color: #fff;
+            transform: rotate(360deg);
         }
 
         body.dark-theme {
@@ -190,6 +233,71 @@
             background-color: #9d81ba;
             color: #fff;
         }
+
+        /* Animation classes for scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Pulse animation for profile image */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .profile-img {
+            animation: pulse 3s infinite;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+                margin-top: 1.5rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .experience-title,
+            .experience-duration {
+                margin-bottom: 0.25rem;
+                width: 100%;
+            }
+
+            .contact-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+        }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -202,15 +310,15 @@
     </button>
 
     <div class="container">
-        <section class="profile-section">
+        <section class="profile-section reveal">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Half-Life_lambda_logo.svg/1200px-Half-Life_lambda_logo.svg.png"
                 alt="Carlos Alejandro Aleman Osorio" class="profile-img">
             <h1>Carlos Alejandro Aleman Osorio</h1>
             <ul class="contact-list">
                 <li class="contact-list-item">Quito, Ecuador</li>
                 <li class="contact-list-item"><a href="tel:+593983736659">(+593) 983736659</a></li>
-                <li class="contact-list-item"><a
-                        href="mailto:acarlos29112003@gmail.com">acarlos29112003@gmail.com</a></li>
+                <li class="contact-list-item"><a href="mailto:acarlos29112003@gmail.com">acarlos29112003@gmail.com</a>
+                </li>
                 <li class="contact-list-item"><a href="https://linkedin.com/in/alejoaleman" target="_blank"><i
                             class="fab fa-linkedin"></i> LinkedIn</a></li>
                 <li class="contact-list-item"><a href="https://github.com/Alejololer" target="_blank"><i
@@ -218,32 +326,39 @@
             </ul>
         </section>
 
-        <section>
+        <section class="reveal">
             <h2 class="section-title">Profile</h2>
             <p>
-                As a 7th-semester Software Engineering student at Escuela Politécnica Nacional and a proactive Full-Stack
+                As a 7th-semester Software Engineering student at Escuela Politécnica Nacional and a proactive
+                Full-Stack
                 Developer, I am passionate about leveraging technology to solve complex problems. My experience includes
-                developing and enhancing web and mobile applications using Angular, .NET, Flutter, and SQL. I am adept at
+                developing and enhancing web and mobile applications using Angular, .NET, Flutter, and SQL. I am adept
+                at
                 collaborating in agile environments, delivering high-quality solutions, and continuously seeking
                 opportunities to innovate and make a real impact.
             </p>
         </section>
 
-        <section>
+        <section class="reveal">
             <h2 class="section-title">Education</h2>
             <div class="experience-item">
-                <h5 class="experience-title">Escuela Politécnica Nacional, Quito</h5>
-                <p class="experience-duration">Nov 2021 — Present</p>
+                <div class="experience-header">
+                    <h5 class="experience-title">Escuela Politécnica Nacional, Quito</h5>
+                    <p class="experience-duration">Nov 2021 — Present</p>
+                </div>
                 <p>
                     <strong>Bachelor’s Degree in Software Engineering</strong>
                     <br>
-                    Actively engaged in diverse system development projects, notably creating a General Management System
+                    Actively engaged in diverse system development projects, notably creating a General Management
+                    System
                     prototype for a Clinical Analysis Laboratory using C# and SQL Server.
                 </p>
             </div>
             <div class="experience-item">
-                <h5 class="experience-title">Hermano Miguel, Latacunga</h5>
-                <p class="experience-duration">Sep 2018 — Jun 2021</p>
+                <div class="experience-header">
+                    <h5 class="experience-title">Hermano Miguel, Latacunga</h5>
+                    <p class="experience-duration">Sep 2018 — Jun 2021</p>
+                </div>
                 <p>
                     <strong>High School Diploma in Service Electronics</strong>
                     <br>
@@ -253,11 +368,13 @@
             </div>
         </section>
 
-        <section>
+        <section class="reveal">
             <h2 class="section-title">Experience</h2>
             <div class="experience-item">
-                <h5 class="experience-title">SagatFarm, Quito</h5>
-                <p class="experience-duration">Nov 2024 — Present</p>
+                <div class="experience-header">
+                    <h5 class="experience-title">SagatFarm, Quito</h5>
+                    <p class="experience-duration">Nov 2024 — Present</p>
+                </div>
                 <p>
                     <strong>Full-Stack Software Developer</strong>
                     <br>
@@ -269,8 +386,10 @@
                 </p>
             </div>
             <div class="experience-item">
-                <h5 class="experience-title">SagatFarm, Quito</h5>
-                <p class="experience-duration">Sep 2024 — Nov 2024</p>
+                <div class="experience-header">
+                    <h5 class="experience-title">SagatFarm, Quito</h5>
+                    <p class="experience-duration">Sep 2024 — Nov 2024</p>
+                </div>
                 <p>
                     <strong>Software Developer Intern</strong>
                     <br>
@@ -283,7 +402,7 @@
             </div>
         </section>
 
-        <section>
+        <section class="reveal">
             <h2 class="section-title">Skills</h2>
             <div>
                 <h5 class="experience-title">Technical Skills</h5>
@@ -322,27 +441,33 @@
             </div>
         </section>
 
-        <section>
+        <section class="reveal">
             <h2 class="section-title">Professional Strengths</h2>
             <div class="experience-item">
                 <h5 class="experience-title">Key Attributes</h5>
                 <ul>
                     <li>
-                        <strong>Rapid Debugging & Solution Implementation:</strong> Proven ability to quickly diagnose and
+                        <strong>Rapid Debugging & Solution Implementation:</strong> Proven ability to quickly diagnose
+                        and
                         resolve critical system issues, minimizing downtime and ensuring continuous operation.
                     </li>
                     <li>
-                        <strong>Proactive Problem-Proofing & Detail-Oriented Development:</strong> Meticulous approach to
-                        software development, focusing on preventative measures and rigorous testing to minimize potential
+                        <strong>Proactive Problem-Proofing & Detail-Oriented Development:</strong> Meticulous approach
+                        to
+                        software development, focusing on preventative measures and rigorous testing to minimize
+                        potential
                         system failures and ensure high reliability.
                     </li>
                     <li>
-                        <strong>Adaptability & Effective Support in Dynamic Environments:</strong> Thrive in fast-paced support
-                        roles, demonstrating flexibility and resourcefulness to address unexpected challenges and maintain
+                        <strong>Adaptability & Effective Support in Dynamic Environments:</strong> Thrive in fast-paced
+                        support
+                        roles, demonstrating flexibility and resourcefulness to address unexpected challenges and
+                        maintain
                         system stability under pressure.
                     </li>
                     <li>
-                        <strong>User-Centered Approach to Intuitive Solutions:</strong> Dedicated to understanding user needs
+                        <strong>User-Centered Approach to Intuitive Solutions:</strong> Dedicated to understanding user
+                        needs
                         and designing solutions that are not only functional but also user-friendly and efficient.
                     </li>
                 </ul>
@@ -351,6 +476,7 @@
     </div>
 
     <script>
+        // Theme toggle functionality
         const themeToggleButton = document.getElementById('theme-toggle');
         const body = document.body;
         const icon = themeToggleButton.querySelector('i');
@@ -376,6 +502,28 @@
         function updateIcon() {
             icon.className = body.classList.contains('dark-theme') ? 'fas fa-sun' : 'fas fa-moon';
         }
+
+        // Scroll reveal functionality
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+
+        // Initial check to reveal elements that are already visible
+        window.addEventListener('load', revealOnScroll);
     </script>
 </body>
 
